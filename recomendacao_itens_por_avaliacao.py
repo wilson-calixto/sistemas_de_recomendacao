@@ -1,4 +1,4 @@
-from base_de_dados_invertida import avaliacoes
+from base_de_dados_invertida import avaliacoes, topicos
 from math import sqrt
 import numpy as np
 
@@ -39,5 +39,17 @@ def getRecomendacoes(usuario):
     rankings.sort()
     rankings.reverse()
     return rankings
+print("Numero:         topico")
+for i in range(len(topicos)):
+	if(i % 2 ==0):
+		print("   ",i,"---------",topicos[i])
+	else:
+		print("   ",i,"         ",topicos[i])
 
-print(getSimilares('games'))
+topico_escolhido=int(input("Digite o numero do topico que vocẽ deseja\n"))
+
+
+if (topico_escolhido >=0 and topico_escolhido < len(topicos)):
+	print(getSimilares(topicos[topico_escolhido]))
+else:
+	print("Vocẽ digitou um numero inválido")
